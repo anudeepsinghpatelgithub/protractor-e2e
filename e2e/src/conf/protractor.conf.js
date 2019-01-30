@@ -1,4 +1,5 @@
-"use strict";
+'use strict';
+const testSuites = require('./testSuites');
 /**
  * Note: All below timeouts can be increased and descreased based on application need and performance
  */
@@ -21,26 +22,26 @@ exports.timeouts = {
   timeoutInterval: timeoutInterval
 };
 exports.config = {
-  framework: "jasmine2",
+  framework: 'jasmine2',
   allScriptsTimeout: allScriptsTimeout,
   useAllAngular2AppRoots: true,
-  baseUrl: "http://localhost:3000", // default url if nothing provided
+  baseUrl: 'http://localhost:3000', // default url if nothing provided
   capabilities: {
-    browserName: "chrome",
+    browserName: 'chrome',
     shardTestFiles: true,
     maxInstances: 1,
     chromeOptions: {
       args: [
-        "disable-extensions",
-        "disable-web-security",
-        "--start-fullscreen", // enable for Mac OS
-        "--headless", // start on background
-        "--disable-gpu",
-        "--window-size=2880,1800"
+        'disable-extensions',
+        'disable-web-security',
+        '--start-fullscreen', // enable for Mac OS
+        '--headless', // start on background
+        '--disable-gpu',
+        '--window-size=2880,1800'
       ]
     },
-    "moz:firefoxOptions": {
-      args: ["--headless"]
+    'moz:firefoxOptions': {
+      args: ['--headless']
     }
   },
   jasmineNodeOpts: {
@@ -67,21 +68,21 @@ exports.config = {
       .implicitlyWait(implicitlyWait);
 
     // Allure reporter start
-    let AllureReporter = require("jasmine-allure-reporter");
+    let AllureReporter = require('jasmine-allure-reporter');
     jasmine.getEnv().addReporter(
       new AllureReporter({
-        resultsDir: "target/allure-results"
+        resultsDir: 'target/allure-results'
       })
     );
     // Add screenshot to allure report. screenshot are taken after each test
     jasmine.getEnv().afterEach(function(done) {
       browser.takeScreenshot().then(function(png) {
         allure.createAttachment(
-          "Screenshot",
+          'Screenshot',
           function() {
-            return new Buffer(png, "base64");
+            return new Buffer(png, 'base64');
           },
-          "image/png"
+          'image/png'
         )();
         done();
       });
@@ -90,8 +91,8 @@ exports.config = {
     jasmine.getEnv().addReporter(
       new function() {
         this.specDone = function(result) {
-          if (result.status !== "passed") {
-            logger.debug("Test is failed: " + JSON.stringify(result.testInfo));
+          if (result.status !== 'passed') {
+            logger.debug('Test is failed: ' + JSON.stringify(result.testInfo));
             // Add custom logic to do if test failed ad etc...
           }
         };
