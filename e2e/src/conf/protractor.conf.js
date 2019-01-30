@@ -5,11 +5,11 @@ const testSuites = require('./testSuites');
  * We should add retry mechanism for faild tests but for this test, I have not added it here
  */
 // Maximum time to wait for a page load
-const pageLoadTimeout = 30000;
+const pageLoadTimeout = 300000; //5 min . qa app is slow
 // Wait before each command
 const implicitlyWait = 1000;
 // Maximum time to wait for an element visible
-const explicitWait = 30000;
+const explicitWait = 60000;
 // Protractor waits until there are no pending asynchronous tasks in your Angular
 const allScriptsTimeout = 180000; // maximum 3 min, generally on first laod
 // Total time before throwing NO ACTIVE SESSION_ID, Please doc for more info
@@ -26,6 +26,7 @@ exports.config = {
   framework: 'jasmine2',
   allScriptsTimeout: allScriptsTimeout,
   useAllAngular2AppRoots: true,
+  directConnection: true,
   baseUrl: 'http://localhost:3000', // default url if nothing provided
   capabilities: {
     browserName: 'chrome',
@@ -36,7 +37,7 @@ exports.config = {
         'disable-extensions',
         'disable-web-security',
         '--start-fullscreen', // enable for Mac OS
-        '--headless', // start on background
+        //'--headless', // start on background
         '--disable-gpu',
         '--window-size=2880,1800'
       ]
@@ -54,7 +55,7 @@ exports.config = {
     showColors: true
   },
   suites: {
-    smoke: testSuites.SMOKE,
+    smoke: ['../tests/login.test.js'],
     sanity: testSuites.SANITY
   },
   onPrepare: () => {
@@ -93,13 +94,12 @@ exports.config = {
       new function() {
         this.specDone = function(result) {
           if (result.status !== 'passed') {
-            logger.debug('Test is failed: ' + JSON.stringify(result.testInfo));
             // Add custom logic to do if test failed ad etc...
           }
         };
       }()
     );
-
+    console.log('browser.baseUrl--' + browser.baseUrl);
     browser.get(browser.baseUrl);
     return browser.wait(() => {
       return browser.getCurrentUrl().then(url => {

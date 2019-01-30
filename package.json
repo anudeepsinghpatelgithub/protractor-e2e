@@ -1,0 +1,23 @@
+{
+  "name": "protractor-e2e",
+  "version": "1.0.0",
+  "description": "# how to run",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anudeepsinghpatelgithub/protractor-e2e.git"
+  },
+  "author": "ls",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anudeepsinghpatelgithub/protractor-e2e/issues"
+  },
+  "homepage": "https://github.com/anudeepsinghpatelgithub/protractor-e2e#readme",
+  "devDependencies": {
+    "jasmine-allure-reporter": "^1.0.2",
+    "protractor": "^5.4.2"
+  }
+}
