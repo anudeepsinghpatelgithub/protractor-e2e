@@ -2,6 +2,7 @@
 const testSuites = require('./testSuites');
 /**
  * Note: All below timeouts can be increased and descreased based on application need and performance
+ * We should add retry mechanism for faild tests but for this test, I have not added it here
  */
 // Maximum time to wait for a page load
 const pageLoadTimeout = 30000;
