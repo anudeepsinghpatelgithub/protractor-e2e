@@ -27,5 +27,6 @@ fi
 DIRECTORY=target/allure-results
 if [ -d "$DIRECTORY" ]; then
   node_modules/allure-commandline/bin/allure serve target/allure-results --clean -o target/allure-report || true
-  #anode_modules/allure-commandline/bin/allure generate target/allure-results --clean -o target/allure-report || true
+  # if allure is insatlled globbaly then below command else above
+  #allure serve target/allure-results --clean -o target/allure-report || true
 fi
