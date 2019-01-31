@@ -9,7 +9,7 @@ Node.js should be installed and chrome browser
 
    **Option 1**
 
-   run command `npm run e2e default` this will run all tests for sanity suite which contains login and copy form tests against hardcoded application
+   run command `npm run e2e default` this will run all tests for sanity suite which contains login and copy form tests against hardcoded application, after creating copy form it delete it from ui and making api call for double sure and nothing is left
 
    **Option 2**
 
