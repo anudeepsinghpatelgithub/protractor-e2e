@@ -42,3 +42,7 @@ Node.js should be installed and chrome browser
   '--window-size=2880,1800'
   ]
   }
+
+# Sample report
+
+![alt text](https://github.com/anudeepsinghpatelgithub/protractor-e2e/blob/master/test-report.png)
