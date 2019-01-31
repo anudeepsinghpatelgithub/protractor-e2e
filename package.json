@@ -1,10 +1,11 @@
 {
   "name": "protractor-e2e",
   "version": "1.0.0",
-  "description": "# how to run",
+  "description": "E2E framework for angular application, refer read me and start.sh file for more help",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "e2e": "./start.sh",
+    "postinstall": "node node_modules/protractor/bin/webdriver-manager update --gecko=false"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,9 @@
   },
   "homepage": "https://github.com/anudeepsinghpatelgithub/protractor-e2e#readme",
   "devDependencies": {
+    "allure-commandline": "^2.9.0",
     "jasmine-allure-reporter": "^1.0.2",
-    "protractor": "^5.4.2"
+    "protractor": "^5.4.2",
+    "sync-request": "^6.0.0"
   }
 }

@@ -3,17 +3,17 @@ const testSuites = require('./testSuites');
 /**
  * Note: All below timeouts can be increased and descreased based on application need and performance
  * We should add retry mechanism for faild tests but for this test, I have not added it here
+ * All timeouts are in milliseconds
  */
-// Maximum time to wait for a page load
+// Maximum time to wait for a page load generally first time
 const pageLoadTimeout = 300000; //5 min . qa app is slow
-// Wait before each command
-const implicitlyWait = 1000;
+const implicitlyWait = 5000; //should not be more than 5 seconds, this will impact over all execution time
 // Maximum time to wait for an element visible
-const explicitWait = 60000;
+const explicitWait = 30000; // Wait for maximum 30 sec for any element to be present
 // Protractor waits until there are no pending asynchronous tasks in your Angular
-const allScriptsTimeout = 180000; // maximum 3 min, generally on first laod
+const allScriptsTimeout = 90000; // maximum 1.5 min to finish all asynchronous network call
 // Total time before throwing NO ACTIVE SESSION_ID, Please doc for more info
-const timeoutInterval = 3600000; //60 min for now
+const timeoutInterval = 3600000; //60 min for now(just a arbitrary number for now, need to add based on overall tests)
 // Wait after page is loaded
 const pageResolveTimeout = 1000;
 
@@ -25,8 +25,7 @@ exports.timeouts = {
 exports.config = {
   framework: 'jasmine2',
   allScriptsTimeout: allScriptsTimeout,
-  useAllAngular2AppRoots: true,
-  directConnection: true,
+  directConnect: false,
   baseUrl: 'http://localhost:3000', // default url if nothing provided
   capabilities: {
     browserName: 'chrome',
@@ -55,7 +54,7 @@ exports.config = {
     showColors: true
   },
   suites: {
-    smoke: ['../tests/login.test.js'],
+    smoke: testSuites.SMOKE,
     sanity: testSuites.SANITY
   },
   onPrepare: () => {
@@ -63,7 +62,6 @@ exports.config = {
       .manage()
       .timeouts()
       .pageLoadTimeout(pageLoadTimeout);
-
     browser
       .manage()
       .timeouts()

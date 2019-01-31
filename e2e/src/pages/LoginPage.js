@@ -4,23 +4,19 @@ const HelperFunctions = require('./HelperFunctions');
 
 class LoginPage {
   constructor() {
-    this._emailInput = element(by.model(`ctrl.model.user`));
-    this._passwordInput = element(by.model(`ctrl.model.pass`));
-    this.singInButton = element(
-      by.xpath(`//button[contains(text()," Sign In")]`)
+    this._helper = new HelperFunctions();
+    this._emailInput = element(by.css(`[placeholder="Username"]`));
+    this._passwordInput = element(by.css(`[placeholder="Password"]`));
+    this._singInButton = element(
+      by.xpath(`//button[contains(text(),"Sign In")]`)
     );
   }
 
   login(email, password) {
-    HelperFunctions.elementToBeVisible(this._emailInput);
-    this._emailInput.clear().sendKeys(email);
-
-    HelperFunctions.elementToBeVisible(this._passwordInput);
-    this._passwordInput.clear().sendKeys(password);
-
-    HelperFunctions.elementToBeClickable(this.singInButton);
-    this.singInButton.click();
-    HelperFunctions.pageToBeReady('/');
+    this._helper.fillInput(this._emailInput, email);
+    this._helper.fillInput(this._passwordInput, password);
+    this._helper.clickOnElement(this._singInButton);
+    this._helper.pageToBeReady(/v1/);
   }
 }
 
