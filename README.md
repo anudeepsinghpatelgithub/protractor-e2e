@@ -14,8 +14,12 @@ Node.js should be installed and chrome browser
    **Option 2**
 
    run command `npm run e2e` press enter and provide arugment asked to run the program
+
    Enter Application url: https://applicationurl.com
+
    Enter suite Name: `sanity or smoke` any one of them
+
+   Note: if host is changed then user has to change the password and user name on TestConstants.js file, these are hardcoded but can be exposed to excel or property file so we don't need to change the code.
 
    **Option 3**
 
