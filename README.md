@@ -31,3 +31,14 @@ Node.js should be installed and chrome browser
 
 - We should add retry mechanism for faild tests but for this test, I am not doing here for this test
 - We should use data provider to run same tests with multiple datasets and avoid duplicate code, I am not doing here for this test
+- Test will run on headless mode, if wnat to run with UI then please uncomment the headless property or pass as argument in the command
+  chromeOptions: {
+  args: [
+  'disable-extensions',
+  'disable-web-security',
+  '--start-fullscreen', // enable for Mac OS
+  //'--headless', // start on background
+  '--disable-gpu',
+  '--window-size=2880,1800'
+  ]
+  }
