@@ -57,7 +57,7 @@ describe('Executing form builder tests', () => {
       Contants.FORM_INFO.FORM_OPTION
     );
     const copyFormName =
-      'qa-asp-' + Utils.getShortId() + '-' + Contants.FORM_INFO.FORM_NAME;
+      'qa-asp-' + Utils.getRandomNumber() + '-' + Contants.FORM_INFO.FORM_NAME;
     console.log(copyFormName);
     formBuilder.fillCopyFormModel(copyFormName);
     formBuilder.clickOnCopyButton();
