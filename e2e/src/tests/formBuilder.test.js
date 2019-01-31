@@ -9,7 +9,10 @@ const FormBuilderPage = require('../pages/FormBuilderPage');
 const MultiPage = require('../pages/MultiPage');
 
 const ApiHlper = require('../api/ApiHelper');
-
+/**
+ * This test will create a copy of form and change the status to On hold and then delete that and verify
+ * Apart from this also make a api call to delete for double sure nothing left
+ */
 describe('Executing form builder tests', () => {
   let formId = null;
   let token = null;
