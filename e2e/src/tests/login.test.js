@@ -14,6 +14,6 @@ describe('Executing login tests', () => {
 
   it('Login with valid user and password', () => {
     loginPage.login(Contants.LOGIN_INFO.EMAIL, Contants.LOGIN_INFO.PASSWORD);
-    new Header().verifyLogo();
+    new Header().verifyInDashboard();
   });
 });
