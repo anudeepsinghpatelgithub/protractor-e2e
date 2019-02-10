@@ -19,7 +19,7 @@ else
     fi
     #protractor ./e2e/src/conf/protractor.conf.js --baseUrl=$baseUrl --suite=$suiteName
     # if protractor is not installed globally
-    node_modules/protractor/bin/protractor ./e2e/src/conf/protractor.conf.js --baseUrl=$baseUrl --suite=$suiteName
+    node_modules/protractor/bin/protractor e2eOutputJs/conf/protractor.conf.js --baseUrl=$baseUrl --suite=$suiteName
 fi
 
 

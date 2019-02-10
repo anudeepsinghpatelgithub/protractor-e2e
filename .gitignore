@@ -1,3 +1,6 @@
 .vscode
 node_modules
 target
+*.js
+e2eOutputJs
+.node_modules/

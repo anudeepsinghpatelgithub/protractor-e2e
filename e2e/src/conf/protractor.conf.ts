@@ -1,5 +1,7 @@
 'use strict';
-const testSuites = require('./testSuites');
+import { Config, browser } from 'protractor';
+import { TestSuites } from './TestSuites';
+declare const allure: any;
 /**
  * Note: All below timeouts can be increased and descreased based on application need and performance
  * We should add retry mechanism for faild tests but for this test, I have not added it here
@@ -17,12 +19,12 @@ const timeoutInterval = 3600000; //60 min for now(just a arbitrary number for no
 // Wait after page is loaded
 const pageResolveTimeout = 1000;
 
-exports.timeouts = {
+export let timeouts = {
   explicitWait: explicitWait,
   pageResolveTimeout: pageResolveTimeout,
   timeoutInterval: timeoutInterval
 };
-exports.config = {
+export let config: Config = {
   framework: 'jasmine2',
   allScriptsTimeout: allScriptsTimeout,
   directConnect: false,
@@ -36,7 +38,7 @@ exports.config = {
         'disable-extensions',
         'disable-web-security',
         '--start-fullscreen', // enable for Mac OS
-        '--headless', // start on background
+        //'--headless', // start on background
         '--disable-gpu',
         '--window-size=2880,1800'
       ]
@@ -54,8 +56,8 @@ exports.config = {
     showColors: true
   },
   suites: {
-    smoke: testSuites.SMOKE,
-    sanity: testSuites.SANITY
+    smoke: TestSuites.SMOKE,
+    sanity: TestSuites.SANITY
   },
   onPrepare: () => {
     browser
@@ -87,16 +89,7 @@ exports.config = {
         done();
       });
     });
-    // Allure reporter done
-    jasmine.getEnv().addReporter(
-      new function() {
-        this.specDone = function(result) {
-          if (result.status !== 'passed') {
-            // Add custom logic to do if test failed ad etc...
-          }
-        };
-      }()
-    );
+
     console.log('browser.baseUrl--' + browser.baseUrl);
     browser.get(browser.baseUrl);
     return browser.wait(() => {

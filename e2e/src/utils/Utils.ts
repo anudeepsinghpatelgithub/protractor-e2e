@@ -1,6 +1,6 @@
 'use-strict';
 
-class Utils {
+export class Utils {
   // we can use any other uuid/short id package e.g. shortid or uuid
   static getRandomNumber() {
     let text = '';
@@ -11,5 +11,3 @@ class Utils {
     return text;
   }
 }
-
-module.exports = Utils;
