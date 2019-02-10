@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -rf target
 npm install
+npm run tsc
 
 default=$1
 if [[ ! -z $default ]]
