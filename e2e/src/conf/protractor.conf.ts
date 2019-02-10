@@ -11,7 +11,7 @@ declare const allure: any;
 const pageLoadTimeout = 300000; //5 min . qa app is slow
 const implicitlyWait = 5000; //should not be more than 5 seconds, this will impact over all execution time
 // Maximum time to wait for an element visible
-const explicitWait = 30000; // Wait for maximum 30 sec for any element to be present
+const explicitWait = 60000; // Wait for maximum 30 sec for any element to be present
 // Protractor waits until there are no pending asynchronous tasks in your Angular
 const allScriptsTimeout = 90000; // maximum 1.5 min to finish all asynchronous network call
 // Total time before throwing NO ACTIVE SESSION_ID, Please doc for more info
