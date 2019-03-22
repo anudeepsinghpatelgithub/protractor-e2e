@@ -61,12 +61,8 @@ describe('Executing form builder tests', () => {
     formBuilder.waitForPageToBeLoaded(/forms/);
     formBuilder.changeFilterByStatus(TestConstants.STATUS);
     formBuilder.searchForm(TestConstants.SEARCH_KEYWORD);
-    formBuilder.clickOnFromCardOption(
-      TestConstants.FORM_NAME,
-      TestConstants.FORM_OPTION
-    );
-    const copyFormName =
-      'qa-asp-' + Utils.getRandomNumber() + '-' + TestConstants.FORM_NAME;
+    formBuilder.clickOnFromCardOption(TestConstants.FORM_NAME, TestConstants.FORM_OPTION);
+    const copyFormName = 'qa-asp-' + Utils.getRandomNumber() + '-' + TestConstants.FORM_NAME;
     console.log(copyFormName);
     formBuilder.fillCopyFormModel(copyFormName);
     formBuilder.clickOnCopyButton();
@@ -76,14 +72,10 @@ describe('Executing form builder tests', () => {
     // Get form id from current url
     browser.getCurrentUrl().then(url => {
       formId = multiPage.getFormId(url);
-      console.log('formId----' + formId);
       // Get token
-      browser
-        .executeScript("return localStorage.getItem('clienttoken');")
-        .then(value => {
-          token = value;
-          console.log('token----' + token);
-        });
+      browser.executeScript("return localStorage.getItem('clienttoken');").then(value => {
+        token = value;
+      });
     });
     multiPage.clickOnMultiFormAction(TestConstants.OPEN);
     formBuilder.waitForPageToBeLoaded(/forms/);
