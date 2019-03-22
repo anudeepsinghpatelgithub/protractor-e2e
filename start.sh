@@ -4,13 +4,13 @@ npm install
 
 default=$1
 if [[ ! -z $default ]]
-then node_modules/protractor/bin/protractor ./e2e/src/conf/protractor.conf.js --baseUrl="https://qa2.primotus.com" --suite="smoke"
+then node_modules/protractor/bin/protractor ./e2e/src/conf/protractor.conf.js --baseUrl="<URL>" --suite="smoke"
 else
     echo "default not given"
     read -p "Enter Application url: "  baseUrl
     read -p "Enter suite Name: "  suiteName
     if [ -z $baseUrl ]
-    then baseUrl="https://qa2.primotus.com"
+    then baseUrl="<URL>"
     fi
 
     if [ -z $suiteName ]
