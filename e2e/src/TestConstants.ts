@@ -1,6 +1,6 @@
 export class TestConstants {
-  public static EMAIL: string = 'qa2test@mailinator.com';
-  public static PASSWORD: string = 'Prim0tus!';
+  public static EMAIL: string = 'email';
+  public static PASSWORD: string = 'pass';
   public static STATUS: string = 'All';
   public static SEARCH_KEYWORD: string = 'qa_p1';
   public static FORM_NAME: string = 'qa_p1_t1';
