@@ -1,6 +1,6 @@
 const LOGIN_INFO = {
-  EMAIL: 'qa2test@mailinator.com',
-  PASSWORD: 'Prim0tus!'
+  EMAIL: 'qemail',
+  PASSWORD: 'pass'
 };
 const FORM_INFO = {
   STATUS: 'All',
